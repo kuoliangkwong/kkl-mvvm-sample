@@ -8,16 +8,7 @@ import android.view.View;
  */
 
 public class User {
-    int counter = 0;
 
     public final ObservableField<String> firstName =
             new ObservableField<>();
-
-    public User() {
-        //Initialize everything here
-    }
-
-    public void onClick(View v) {
-        firstName.set("kkl " + counter++);
-    }
 }
