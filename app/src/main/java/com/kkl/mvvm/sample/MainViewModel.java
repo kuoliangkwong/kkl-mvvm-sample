@@ -12,10 +12,11 @@ import java.util.Observable;
  * Created by Kuo Liang on 09-Oct-17.
  */
 
-public class MainViewModel extends Observable {
+public class MainViewModel {
     Point mVideoSizePoint;
     int mTextCounter = 0;
     Toggle mToggle;
+    MainNavigator mNavigator;
 
     public User user;
     public final ObservableField<String> videoSize =
@@ -25,6 +26,16 @@ public class MainViewModel extends Observable {
         user = new User();
         mVideoSizePoint = new Point();
         mToggle = new Toggle(Color.RED, Color.BLUE);
+        setListener(new MainNavigator() {
+            @Override
+            public void onToggled(int color) {
+                //Do nothing now.
+            }
+        });
+    }
+
+    public void setListener(MainNavigator navigator) {
+        mNavigator = navigator;
     }
 
     public void setVideoSize(int width, int height) {
@@ -36,10 +47,8 @@ public class MainViewModel extends Observable {
     }
 
     public void onClickButton(View v, int width, int height) {
-        mToggle.toggle();
         setVideoSize(width, height);
-        setChanged();
-        notifyObservers(mToggle);
+        mNavigator.onToggled((int)mToggle.toggle());
         videoSize.set(mVideoSizePoint.x + "x" + mVideoSizePoint.y);
     }
 }

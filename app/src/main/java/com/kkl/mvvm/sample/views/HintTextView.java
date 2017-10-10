@@ -40,7 +40,7 @@ public class HintTextView extends FrameLayout {
         binding.etName.addTextChangedListener(viewModel.textWatcher());
     }
 
-    public static class ViewModel extends Observable {
+    public static class ViewModel {
         public ObservableInt hintTextVisibility = new ObservableInt();
 
         public ViewModel() {
