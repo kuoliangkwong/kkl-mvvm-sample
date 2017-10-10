@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">kkl mvvm sample</string>
+    <string name="first_name">First Name</string>
 </resources>
