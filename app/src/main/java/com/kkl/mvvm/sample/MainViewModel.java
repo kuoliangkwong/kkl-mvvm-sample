@@ -24,7 +24,7 @@ public class MainViewModel extends Observable {
     public MainViewModel(Context context) {
         user = new User();
         mVideoSizePoint = new Point();
-        mToggle = new Toggle(Color.RED, Color.CYAN);
+        mToggle = new Toggle(Color.RED, Color.BLUE);
     }
 
     public void setVideoSize(int width, int height) {

@@ -36,7 +36,11 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
-        Toggle colorToggle = (Toggle) data;
-        mBinding.btnPressMe.setBackgroundColor((int)colorToggle.current());
+        // Should not contain any complicated logic here.
+        // All logic should be processed in view model and passed the final value here
+        if (data instanceof Toggle) {
+            Toggle colorToggle = (Toggle) data;
+            mBinding.btnPressMe.setBackgroundColor((int) colorToggle.current());
+        }
     }
 }
